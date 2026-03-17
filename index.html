@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA: Under the Hood | Anti-Visualizer</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>DSA: Under the Hood</h1>
+        <p>Mastering data structures through raw logic and state transitions.</p>
+        <nav class="ds-tabs">
+          <button class="tab-btn active" data-target="stack-view">Stack</button>
+          <button class="tab-btn" data-target="queue-view">Queue</button>
+          <button class="tab-btn" data-target="linkedlist-view">Linked List</button>
+          <button class="tab-btn" data-target="bt-view">Binary Tree</button>
+        </nav>
+      </header>
+
+      <!-- STACK VIEW -->
+      <div id="stack-view" class="ds-view active">
+        <main class="main-layout">
+          <section class="code-column">
+            <div class="panel">
+              <div class="panel-header"><span>Stack.js</span><span id="stack-operation-label">Idle</span></div>
+              <div class="code-container" id="stack-code-display"></div>
+            </div>
+          </section>
+          <section class="state-column"><div class="state-panel">
+            <div class="variable-card"><h3>Memory State (Variables)</h3><div class="variable-list" id="stack-variable-list"></div></div>
+            <div class="variable-card"><h3>Array Storage (Internal)</h3><div class="array-view" id="stack-array-storage"></div></div>
+            <div class="variable-card"><h3>Output / Return</h3><div id="stack-return-value" class="variable-item"><span class="var-name">result</span><span class="var-value">null</span></div></div>
+          </div></section>
+        </main>
+        <div class="controls-panel">
+          <div class="input-group"><input type="text" id="stack-input" placeholder="Value to push..." maxlength="10" /><button id="stack-push-btn" class="secondary">Push</button><button id="stack-pop-btn" class="primary">Pop</button></div>
+          <div style="flex:1"></div>
+          <div class="input-group"><button id="stack-step-btn" class="ghost" disabled>Next Step</button><button id="stack-reset-btn" class="ghost">Reset</button></div>
+        </div>
+        <div class="console-panel" id="stack-console"></div>
+      </div>
+
+      <!-- QUEUE VIEW -->
+      <div id="queue-view" class="ds-view">
+        <main class="main-layout">
+          <section class="code-column">
+            <div class="panel">
+              <div class="panel-header"><span>Queue.js</span><span id="queue-operation-label">Idle</span></div>
+              <div class="code-container" id="queue-code-display"></div>
+            </div>
+          </section>
+          <section class="state-column"><div class="state-panel">
+            <div class="variable-card"><h3>Memory State (Variables)</h3><div class="variable-list" id="queue-variable-list"></div></div>
+            <div class="variable-card"><h3>Array Storage (Internal)</h3><div class="array-view" id="queue-array-storage"></div></div>
+            <div class="variable-card"><h3>Output / Return</h3><div id="queue-return-value" class="variable-item"><span class="var-name">result</span><span class="var-value">null</span></div></div>
+          </div></section>
+        </main>
+        <div class="controls-panel">
+          <div class="input-group"><input type="text" id="queue-input" placeholder="Value to enqueue..." maxlength="10" /><button id="queue-enqueue-btn" class="secondary">Enqueue</button><button id="queue-dequeue-btn" class="primary">Dequeue</button></div>
+          <div style="flex:1"></div>
+          <div class="input-group"><button id="queue-step-btn" class="ghost" disabled>Next Step</button><button id="queue-reset-btn" class="ghost">Reset</button></div>
+        </div>
+        <div class="console-panel" id="queue-console"></div>
+      </div>
+
+      <!-- LINKED LIST VIEW -->
+      <div id="linkedlist-view" class="ds-view">
+        <main class="main-layout">
+          <section class="code-column">
+            <div class="panel">
+              <div class="panel-header"><span>LinkedList.js</span><span id="ll-operation-label">Idle</span></div>
+              <div class="code-container" id="ll-code-display"></div>
+            </div>
+          </section>
+          <section class="state-column"><div class="state-panel">
+            <div class="variable-card"><h3>Pointer Variables</h3><div class="variable-list" id="ll-variable-list"></div></div>
+            <div class="variable-card"><h3>Nodes in Memory</h3><div class="node-memory-view" id="ll-node-memory"></div></div>
+            <div class="variable-card"><h3>Output / Return</h3><div id="ll-return-value" class="variable-item"><span class="var-name">result</span><span class="var-value">null</span></div></div>
+          </div></section>
+        </main>
+        <div class="controls-panel">
+          <div class="input-group"><input type="text" id="ll-input" placeholder="Value to insert..." maxlength="10" /><button id="ll-insert-btn" class="secondary">Insert at Head</button><button id="ll-delete-btn" class="primary">Delete Head</button></div>
+          <div style="flex:1"></div>
+          <div class="input-group"><button id="ll-step-btn" class="ghost" disabled>Next Step</button><button id="ll-reset-btn" class="ghost">Reset</button></div>
+        </div>
+        <div class="console-panel" id="ll-console"></div>
+      </div>
+
+      <!-- BINARY TREE VIEW -->
+      <div id="bt-view" class="ds-view">
+        <main class="main-layout">
+          <section class="code-column">
+            <div class="panel">
+              <div class="panel-header"><span>BinaryTree.js</span><span id="bt-operation-label">Idle</span></div>
+              <div class="code-container" id="bt-code-display"></div>
+              <div class="step-desc-bar" id="bt-step-desc">Ready — insert values then run inorder traversal.</div>
+            </div>
+          </section>
+          <section class="state-column"><div class="state-panel">
+            <div class="variable-card"><h3>Pointer Variables</h3><div class="variable-list" id="bt-variable-list"></div></div>
+            <div class="variable-card"><h3>Call Stack (Recursion)</h3><div class="call-stack-view" id="bt-call-stack"></div></div>
+            <div class="variable-card"><h3>Nodes in Memory</h3><div class="node-memory-view" id="bt-node-memory"></div></div>
+            <div class="variable-card"><h3>Output / Return</h3><div id="bt-return-value" class="variable-item"><span class="var-name">result</span><span class="var-value">null</span></div></div>
+          </div></section>
+        </main>
+        <div class="controls-panel">
+          <div class="input-group"><input type="number" id="bt-input" placeholder="Number to insert..." maxlength="10" /><button id="bt-insert-btn" class="secondary">Insert</button><button id="bt-inorder-btn" class="primary">Inorder</button></div>
+          <div style="flex:1"></div>
+          <div class="input-group"><button id="bt-step-btn" class="ghost" disabled>Next Step</button><button id="bt-reset-btn" class="ghost">Reset</button></div>
+        </div>
+        <div class="console-panel" id="bt-console"></div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
