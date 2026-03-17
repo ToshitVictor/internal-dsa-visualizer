@@ -1,4 +1,4 @@
-# DSA: Under the Hood
+# DSA: Internal Coding Visualizer
 
 ### 🎯 Overview
 An "Anti-Visualizer" for learning Data Structures and Algorithms. Instead of abstract animations, this app shows the raw code execution and exact memory state changes (pointers, arrays, call stack) step-by-step.
