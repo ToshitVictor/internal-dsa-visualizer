@@ -1,5 +1,4 @@
 {
-  "name": "DSA: Internal Coding Visualizer",
   "rewrites": [
     {
       "source": "/(.*)",
